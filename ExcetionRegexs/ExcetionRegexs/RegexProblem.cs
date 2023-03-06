@@ -101,5 +101,25 @@ namespace ExcetionRegexs
                 throw new UserRegistrationCustomException(ExceptionType.NULL_PHONENUMBER, "Do not Null Input");
             }
         }
+        public string ValidatePassword(string psword)
+        {
+            string password = @"[A-Z]{1}[a-z0-9]";
+            try
+            {
+                if (Regex.IsMatch(psword, password))
+                {
+                    Console.WriteLine("Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+                return psword;
+            }
+            catch (NullReferenceException)
+            {
+                throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORD, "Do not Null Input");
+            }
+        }
     }
 }
