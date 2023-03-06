@@ -80,5 +80,26 @@ namespace ExcetionRegexs
                 throw new UserRegistrationCustomException(ExceptionType.NULL_EMAIL_ID, " Do not Null Input");
             }
         }
+        public string ValidatePhoneNumber(string phoneNumber)
+        {
+            //"91 6352129268"
+            string phoneNum = @"[0-9]{2}[ ][0-9]{10}";  //@"[0-9]{2}/s[0-9]{10}" Both are correct expressions
+            try
+            {
+                if (Regex.IsMatch(phoneNumber, phoneNum))
+                {
+                    Console.WriteLine("Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+                return phoneNumber;
+            }
+            catch (NullReferenceException)
+            {
+                throw new UserRegistrationCustomException(ExceptionType.NULL_PHONENUMBER, "Do not Null Input");
+            }
+        }
     }
 }
