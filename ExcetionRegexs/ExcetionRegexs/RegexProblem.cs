@@ -161,5 +161,25 @@ namespace ExcetionRegexs
                 throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORDRULE3, "Do not Null Input");
             }
         }
+        public string ValidatePassword4(string Psword)
+        {
+            string password = "(?=.*[A-Z])(?=.*[0-9])(?=.*[*#@$!^_-])[A-Za-z0-9]{8,}";
+            try
+            {
+                if (Regex.IsMatch(Psword, password))
+                {
+                    Console.WriteLine("Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+                return Psword;
+            }
+            catch (NullReferenceException)
+            {
+                throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORDRULE4, "Do not Null Input");
+            }
+        }
     }
 }

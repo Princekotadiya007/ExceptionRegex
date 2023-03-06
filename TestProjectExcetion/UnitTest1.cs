@@ -93,5 +93,17 @@ namespace TestProjectExcetion
                 Assert.AreEqual("Do not Null Input", obj.Message);
             }
         }
+        [Test]
+        public void Given_Empty_ValidatePassword4_Should_Throw_UserRegistrationException_Indicating_EmptyInput()
+        {
+            try
+            {
+                string result = regex.ValidatePassword4("Prince07@");
+            }
+            catch (UserRegistrationCustomException obj)
+            {
+                Assert.AreEqual("Do not Null Input", obj.Message);
+            }
+        }
     }
 }
