@@ -10,7 +10,8 @@ namespace ExcetionRegexs
     {
         public enum ExceptionType
         {
-            NULL_FIRSTNAME
+            NULL_FIRSTNAME,
+            NULL_LASTNAME,
         }
         public ExceptionType Type;
         public UserRegistrationCustomException(ExceptionType Type, string message) : base(message)
