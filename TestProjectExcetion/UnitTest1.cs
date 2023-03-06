@@ -50,7 +50,7 @@ namespace TestProjectExcetion
         {
             try
             {
-                string result = regex.ValidatePhoneNumber("91 6352129268");
+                string result = regex.ValidatePhoneNumber(" 91 6352129268");
             }
             catch (UserRegistrationCustomException obj)
             {
@@ -62,7 +62,19 @@ namespace TestProjectExcetion
         {
             try
             {
-                string result = regex.ValidatePassword("");
+                string result = regex.ValidatePassword("Princes7");
+            }
+            catch (UserRegistrationCustomException obj)
+            {
+                Assert.AreEqual("Do not Null Input", obj.Message);
+            }
+        }
+        [Test]
+        public void Given_Empty_ValidatePassword2_Should_Throw_UserRegistrationException_Indicating_EmptyInput()
+        {
+            try
+            {
+                string result = regex.ValidatePassword2("PRINCES7");
             }
             catch (UserRegistrationCustomException obj)
             {

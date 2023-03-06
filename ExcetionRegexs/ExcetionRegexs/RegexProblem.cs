@@ -121,5 +121,25 @@ namespace ExcetionRegexs
                 throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORD, "Do not Null Input");
             }
         }
+        public string ValidatePassword2(string Psword)
+        {
+            string password = "[A-Z]{1,}[a-z0-9]";
+            try
+            {
+                if (Regex.IsMatch(Psword, password))
+                {
+                    Console.WriteLine("Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+                return Psword;
+            }
+            catch (NullReferenceException)
+            {
+                throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORDRULE2, "Do not Null Input");
+            }
+        }
     }
 }
