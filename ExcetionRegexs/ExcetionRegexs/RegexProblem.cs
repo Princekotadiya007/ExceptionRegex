@@ -181,5 +181,25 @@ namespace ExcetionRegexs
                 throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORDRULE4, "Do not Null Input");
             }
         }
+        public string SimpleEmail(string email)
+        {
+            string password = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
+            try
+            {
+                if (Regex.IsMatch(email, password))
+                {
+                    Console.WriteLine("Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+                return email;
+            }
+            catch (NullReferenceException)
+            {
+                throw new UserRegistrationCustomException(ExceptionType.SIMPLE_EMAIL_ID, "Do not Null Input");
+            }
+        }
     }
 }

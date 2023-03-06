@@ -105,5 +105,17 @@ namespace TestProjectExcetion
                 Assert.AreEqual("Do not Null Input", obj.Message);
             }
         }
+        [Test]
+        public void Given_Empty_SimpleEmail_Should_Throw_UserRegistrationException_Indicating_EmptyInput()
+        {
+            try
+            {
+                string result = regex.SimpleEmail("abc@yahoo.com");
+            }
+            catch (UserRegistrationCustomException obj)
+            {
+                Assert.AreEqual("Do not Null Input", obj.Message);
+            }
+        }
     }
 }
