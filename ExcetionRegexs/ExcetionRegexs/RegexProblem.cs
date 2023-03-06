@@ -123,7 +123,7 @@ namespace ExcetionRegexs
         }
         public string ValidatePassword2(string Psword)
         {
-            string password = "[A-Z]{1,}[a-z0-9]";
+            string password = "(?=.*[A-Z])[A-Za-z0-9]{8,}";
             try
             {
                 if (Regex.IsMatch(Psword, password))
@@ -139,6 +139,26 @@ namespace ExcetionRegexs
             catch (NullReferenceException)
             {
                 throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORDRULE2, "Do not Null Input");
+            }
+        }
+        public string ValidatePassword3(string Psword)
+        {
+            string password = "(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]{8,}";
+            try
+            {
+                if (Regex.IsMatch(Psword, password))
+                {
+                    Console.WriteLine("Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+                return Psword;
+            }
+            catch (NullReferenceException)
+            {
+                throw new UserRegistrationCustomException(ExceptionType.NULL_PASSWORDRULE3, "Do not Null Input");
             }
         }
     }

@@ -16,6 +16,7 @@ namespace ExcetionRegexs
             NULL_PHONENUMBER,
             NULL_PASSWORD,
             NULL_PASSWORDRULE2,
+            NULL_PASSWORDRULE3
         }
         public ExceptionType Type;
         public UserRegistrationCustomException(ExceptionType Type, string message) : base(message)
