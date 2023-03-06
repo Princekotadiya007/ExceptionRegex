@@ -12,6 +12,7 @@ namespace ExcetionRegexs
         {
             NULL_FIRSTNAME,
             NULL_LASTNAME,
+            NULL_EMAIL_ID
         }
         public ExceptionType Type;
         public UserRegistrationCustomException(ExceptionType Type, string message) : base(message)

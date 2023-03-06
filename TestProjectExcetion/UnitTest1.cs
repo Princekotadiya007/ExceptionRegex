@@ -16,7 +16,7 @@ namespace TestProjectExcetion
             }
             catch (UserRegistrationCustomException obj)
             {
-                Assert.AreEqual("Please do not Enter the Null Input", obj.Message);
+                Assert.AreEqual("Do not Null Input", obj.Message);
             }
         }
         [Test]
@@ -24,11 +24,23 @@ namespace TestProjectExcetion
         {
             try
             {
-                string result = regex.ValidateFirstName("Kotadiya");
+                string result = regex.ValidateLastName("Kotadiya");
             }
             catch (UserRegistrationCustomException obj)
             {
-                Assert.AreEqual("Please do not Enter the Null Input", obj.Message);
+                Assert.AreEqual("Do not Null Input", obj.Message);
+            }
+        }
+        [Test]
+        public void Given_Empty_EMAIL_ID_Should_Throw_UserRegistrationException_Indicating_EmptyInput()
+        {
+            try
+            {
+                string result = regex.ValidateFirstName("prince.kotadiya@gmail.co.in");
+            }
+            catch (UserRegistrationCustomException obj)
+            {
+                Assert.AreEqual("Do not Null Input", obj.Message);
             }
         }
     }
